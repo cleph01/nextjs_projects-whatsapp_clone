@@ -9,9 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/icons-material": "^5.11.11",
+    "@mui/material": "^5.11.14",
+    "email-validator": "^2.0.4",
+    "firebase": "^9.18.0",
+    "moment": "^2.29.4",
     "next": "13.2.4",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-firebase-hooks": "^5.1.1",
+    "styled-components": "^5.3.9",
+    "timeago-react": "^3.0.6"
   },
   "devDependencies": {
     "eslint": "8.36.0",
