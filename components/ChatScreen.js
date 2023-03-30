@@ -223,23 +223,29 @@ const EndOfMessage = styled.div`
 `;
 
 const MesssageContainer = styled.div`
-    padding: 3rem;
+    padding: 0.5rem 0.1rem 0;
     background: var(--chatscreen-bg-color);
     min-height: 90vh;
 `;
 
-const HeaderIcons = styled.div``;
+const HeaderIcons = styled.div`
+    > .MuiButtonBase-root > .MuiSvgIcon-root {
+        font-size: var(--icon-font-size);
+    }
+`;
 const HeaderInformation = styled.div`
     margin-left: 1.5rem;
     flex: 1;
 
     > h3 {
+        font-size: 1.4rem;
         margin-bottom: 0.3rem;
     }
 
     > p {
         font-size: 1.4rem;
         color: #ccc;
+        margin: 0;
     }
 `;
 const Header = styled.div`

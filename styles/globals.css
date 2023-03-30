@@ -24,4 +24,6 @@ a {
     --border-color: whitesmoke;
     --msg-bg-color: #e9eaeb;
     --chatscreen-bg-color: #e5ded8;
+    --font-size: 1.3rem;
+    --icon-font-size: 2rem;
 }

@@ -91,6 +91,7 @@ export default Sidebar;
 
 const SidebarButton = styled(Button)`
     width: 100%;
+    font-size: var(--font-size);
 
     &&& {
         border-top: 1px solid var(--border-color);
@@ -102,6 +103,11 @@ const SearchInput = styled.input`
     outline-width: 0;
     border: none;
     flex: 1;
+    font-size: var(--font-size);
+
+    ::placeholder {
+        font-size: var(--font-size);
+    }
 `;
 
 const SearchContainer = styled.div`
@@ -149,4 +155,8 @@ const UserAvatar = styled(Avatar)`
     }
 `;
 
-const IconsContainer = styled.div``;
+const IconsContainer = styled.div`
+    > .MuiButtonBase-root > .MuiSvgIcon-root {
+        font-size: var(--icon-font-size);
+    }
+`;

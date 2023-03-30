@@ -10,12 +10,14 @@ const ChatMessage = ({ user, message }) => {
     const TypeOfMessage = user === userLoggedIn.email ? Sender : Receiver;
     return (
         <Container>
-            <TypeOfMessage>{message.message}</TypeOfMessage>
-            <Timestamp>
-                {messsage.timestamp
-                    ? moment(message.timestamp.format("LT"))
-                    : "..."}
-            </Timestamp>
+            <TypeOfMessage>
+                {message?.message}
+                <Timestamp>
+                    {message?.timestamp
+                        ? moment(message?.timestamp).format("LT")
+                        : "..."}
+                </Timestamp>
+            </TypeOfMessage>
         </Container>
     );
 };
@@ -35,12 +37,13 @@ const Timestamp = styled.span`
 const MessageElement = styled.p`
     width: fit-content;
     padding: 1.5rem;
-    padding-bottom: 1.6rem;
+    padding-bottom: 2.6rem;
     border-radius: 0.8rem;
     margin: 1rem;
     min-width: 6rem;
     position: relative;
     text-align: right;
+    font-size: var(--font-size);
 `;
 
 const Sender = styled(MessageElement)`

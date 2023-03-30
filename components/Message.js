@@ -60,4 +60,8 @@ const Container = styled.div`
     :hover {
         background-color: var(--msg-bg-color);
     }
+
+    > p{
+        font-size: var(--font-size);
+    }
 `;
