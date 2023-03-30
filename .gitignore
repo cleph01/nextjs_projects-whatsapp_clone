@@ -2,7 +2,7 @@
 
 
 # firebase config
-/utils/db/firebaseConfig.js
+# /utils/db/firebaseConfig.js
 
 # dependencies
 /node_modules
