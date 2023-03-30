@@ -40,30 +40,41 @@ export const getServerSideProps = async (context) => {
 
     const messageQuery = query(messagesRef, orderBy("timestamp", "asc"));
 
-    const messagesResponse = await getDocs(messageQuery);
+    let messages;
+    try {
+        const messagesResponse = await getDocs(messageQuery);
 
-    // console.log("msg respone: ", messagesResponse.docs[0].data());
-    // First arrange the messages response into a structure i want
-    const messages = messagesResponse?.docs
-        .map((doc) => ({
-            id: doc.id,
-            ...doc.data(),
-        }))
-        // Secondly, arrange that array into an object with the correct timestamp
-        .map((messages) => ({
-            ...messages,
-            timestamp: messages.timestamp.toDate().getTime(),
-        }));
+        // console.log("msg respone: ", messagesResponse.docs[0].data());
+        // First arrange the messages response into a structure i want
+        messages = messagesResponse?.docs
+            .map((doc) => ({
+                id: doc.id,
+                ...doc.data(),
+            }))
+            // Secondly, arrange that array into an object with the correct timestamp
+            .map((messages) => ({
+                ...messages,
+                timestamp: messages.timestamp.toDate().getTime(),
+            }));
+    } catch (error) {
+        console.log("error getting messages: ", error);
+    }
 
     // // PREP THE CHAT CHANNEL
     const channelDocRef = doc(db, `chats/${context.query.id}`);
 
-    const channelResponse = await getDoc(channelDocRef);
+    let chat = {};
 
-    const chat = {
-        id: channelResponse.id,
-        ...channelResponse.data(),
-    };
+    try {
+        const channelResponse = await getDoc(channelDocRef);
+
+        chat = {
+            id: channelResponse.id,
+            ...channelResponse.data(),
+        };
+    } catch (error) {
+        console.log("error getting chat channel: ", error);
+    }
 
     // console.log("Chat & Msgs: ", chat, messages);
     return {
